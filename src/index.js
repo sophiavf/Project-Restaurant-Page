@@ -1,6 +1,6 @@
 import "./style.css";
 
-import contactPage from "./contact";
+import contactPage from "./pages/contact";
 import headerImage from "./chris-liverani-unsplash.jpg";
 console.log("Hello");
 
