@@ -1,5 +1,6 @@
-const contactPage = () => {
-    
-}
+import setActiveButton from "../utils/activeButton";
+import createDomElement from "../utils/createElement";
 
-export default contactPage;
+function LoadContactPage() {}
+
+export default LoadContactPage;

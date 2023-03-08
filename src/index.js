@@ -1,15 +1,26 @@
 import "./style.css";
+import loadAboutPage from "./pages/about";
+import loadContactPage from "./pages/contact";
+import loadHomePage from "./pages/home";
+import loadMenuPage from "./pages/menu";
+import loadBoilerPlate from "./utils/boilerPlate";
 
-import contactPage from "./pages/contact";
-import headerImage from "./chris-liverani-unsplash.jpg";
-console.log("Hello");
+initializePage();
 
-function component() {
-	const element = document.createElement("div");
-
-	// use your function!
-	element.textContent = myName("Cody");
-	return element;
+function initializePage() {
+	loadBoilerPlate();
+	addButtonEvents();
+	loadHomePage();
 }
 
-document.body.appendChild(component());
+function addButtonEvents() {
+	const homeButton = document.getElementById("homeButton");
+	const menuButton = document.getElementById("menuButton");
+	const contactButton = document.getElementById("contactButton");
+	const aboutButton = document.getElementById("aboutButton");
+
+	homeButton.addEventListener("click", loadHomePage);
+	menuButton.addEventListener("click", loadMenuPage);
+	contactButton.addEventListener("click", loadContactPage);
+	aboutButton.addEventListener("click", loadAboutPage);
+}
