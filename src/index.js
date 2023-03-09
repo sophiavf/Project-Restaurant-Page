@@ -5,14 +5,6 @@ import loadHomePage from "./pages/home";
 import loadMenuPage from "./pages/menu";
 import loadBoilerPlate from "./utils/boilerPlate";
 
-initializePage();
-
-function initializePage() {
-	loadBoilerPlate();
-	addButtonEvents();
-	loadHomePage();
-}
-
 function addButtonEvents() {
 	const homeButton = document.getElementById("homeButton");
 	const menuButton = document.getElementById("menuButton");
@@ -24,3 +16,10 @@ function addButtonEvents() {
 	contactButton.addEventListener("click", loadContactPage);
 	aboutButton.addEventListener("click", loadAboutPage);
 }
+
+function initializePage() {
+	loadBoilerPlate();
+	addButtonEvents();
+	loadHomePage();
+}
+initializePage();

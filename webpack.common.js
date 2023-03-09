@@ -1,23 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-	mode: "development",
 	entry: "./src/index.js",
-	devtool: "inline-source-map",
-	devServer: {
-		static: "./dist",
-	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "Output Management",
 		}),
+		new MiniCssExtractPlugin({ filename: "[name].css" }),
 	],
-	output: {
-		filename: "[name].js",
-		path: path.resolve(__dirname, "dist"),
-		clean: true,
-	},
+
 	module: {
 		rules: [
 			{
@@ -26,7 +19,13 @@ module.exports = {
 			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: "asset/resource",
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "[name].[hash].[ext]",
+						outputPath: "images",
+					},
+				},
 			},
 		],
 	},

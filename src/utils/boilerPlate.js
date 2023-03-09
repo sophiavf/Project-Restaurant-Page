@@ -1,5 +1,9 @@
-import restaurantIcon from "../ramen_dining.svg";
+import restaurantIcon from "../images/ramen_dining.svg";
 import createNewElement from "./createElement";
+
+const mainContainer = createNewElement("main", "mainContainer"); //Page contents (i.e. home, menu etc.) will be appended to this container
+
+const bodyTag = document.querySelector("body");
 
 function loadHeader() {
 	const header = createNewElement("header", "header");
@@ -23,25 +27,25 @@ function loadHeader() {
 	const homeButton = createNewElement(
 		"button",
 		"homeButton",
-		undefined,
+		"navigationButton",
 		"Home"
 	);
 	const menuButton = createNewElement(
 		"button",
 		"menuButton",
-		undefined,
+		"navigationButton",
 		"Menu"
 	);
 	const contactButton = createNewElement(
 		"button",
 		"contactButton",
-		undefined,
+		"navigationButton",
 		"Contact"
 	);
 	const aboutButton = createNewElement(
 		"button",
 		"aboutButton",
-		undefined,
+		"navigationButton",
 		"About"
 	);
 
@@ -50,20 +54,17 @@ function loadHeader() {
 	header.appendChild(brandingContainer);
 	header.appendChild(buttonContainer);
 
-	const bodyTag = document.querySelector("body");
 	bodyTag.appendChild(header);
-
-	const mainContainer = createNewElement("main", "mainContainer"); //Page contents (i.e. home, menu etc.) will be appended to this container
-	header.append(mainContainer);
+	bodyTag.appendChild(mainContainer);
 }
 
 function loadFooter() {
 	const currentYear = new Date().getFullYear();
 	const footer = createNewElement("footer", "footer");
 	const footerContent = createNewElement("div", undefined, undefined);
-	footerContent.innerHTML = `Author: Sophia <a href="https://github.com/sophiavf">GitHub</a> &copy ${currentYear}`;
+	footerContent.innerHTML = `Author: Sophia <a href="https://github.com/sophiavf">GitHub</a> &copy ${currentYear}`;	
 	footer.appendChild(footerContent);
-	mainContainer.append(footer);
+	bodyTag.append(footer);
 }
 
 function loadBoilerPlate() {
@@ -71,4 +72,4 @@ function loadBoilerPlate() {
 	loadFooter();
 }
 
-export default { loadBoilerPlate, mainContainer };
+export default loadBoilerPlate;
