@@ -1,6 +1,7 @@
 import setActiveButton from "../utils/activeButton";
 import headlineImage from "../images/chris-liverani-unsplash.jpg";
 import createDomElement from "../utils/createElement";
+import loadMenuPage from "./menu";
 
 function loadHomePage() {
 	let mainContainer = document.querySelector("main");
@@ -33,6 +34,9 @@ function loadHomePage() {
 
 	headlineContainer.append(imageContainer, rightContainer);
 	mainContainer.appendChild(headlineContainer);
+
+	const ctaButton = document.getElementById("cta");
+	ctaButton.addEventListener("click", loadMenuPage);
 }
 
 export default loadHomePage;

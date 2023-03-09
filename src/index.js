@@ -14,12 +14,7 @@ function addButtonEvents() {
 	homeButton.addEventListener("click", loadHomePage);
 	menuButton.addEventListener("click", loadMenuPage);
 	contactButton.addEventListener("click", loadContactPage);
-	aboutButton.addEventListener("click", loadAboutPage);
-
-
-	const ctaButton = document.getElementById("cta");
-
-	ctaButton.addEventListener("click", loadMenuPage);
+	aboutButton.addEventListener("click", loadAboutPage);	
 }
 
 function initializePage() {
